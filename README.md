@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="img/1.png" alt="Cake Website" />
+  <img src="1.png" alt="Cake Website" />
 </p>
 
 
