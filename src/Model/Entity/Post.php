@@ -11,5 +11,7 @@ class Post extends Entity
         'image' => true,
         'title' => true,
         'content' => true,
+        'created' => true,
+        'modified' => true,
     ];
 }

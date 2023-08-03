@@ -39,7 +39,7 @@ class AppController extends Controller
      *
      * @return void
      */
-    public function initialize(): void
+    function initialize(): void
     {
         parent::initialize();
 
@@ -63,5 +63,9 @@ class AppController extends Controller
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+    }
+
+    function post($id) {
+        echo 'post';
     }
 }
