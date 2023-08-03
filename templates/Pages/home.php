@@ -64,7 +64,6 @@
           
         <?php endforeach ?>
 
-
         <!-- Comments section-->
         <section class="mb-5">
           <div class="card bg-light">
