@@ -5,13 +5,7 @@ use Migrations\AbstractMigration;
 
 class CreateUsers extends AbstractMigration
 {
-    /**
-     * Change Method.
-     *
-     * More information on this method is available here:
-     * https://book.cakephp.org/phinx/0/en/migrations.html#the-change-method
-     * @return void
-     */
+
     function up(): void
     {
         $table = $this->table('users');
@@ -31,4 +25,5 @@ class CreateUsers extends AbstractMigration
     {
         $this->table('users')->drop()->save();
     }
+    
 }

@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\ORM\Post;
 
 /**
  * Application Controller
@@ -28,6 +29,7 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
+
     /**
      * Initialization hook method.
      *
@@ -43,6 +45,14 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+        $this->loadModel('Posts');
+
+        $posts = $this->Posts->find('all', [
+            'order' => ['created' => 'DESC'], // Order by the 'created' column in descending order
+        ]);
+        
+        $this->set(compact('posts'));
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.
