@@ -10,6 +10,52 @@
   <link rel="icon" type="image/x-icon" href="<?= $this->Url->image('assets/favicon.ico') ?>" />
   
   <link href="<?= $this->Url->css('styles') ?>" rel="stylesheet" />
+
+  <style type="text/css">
+    /* Custom CSS for Paginator */
+    .paginator {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .pagination li {
+      margin: 0 5px;
+    }
+
+    .pagination a,
+    .pagination span {
+      display: inline-block;
+      padding: 5px 10px;
+      text-decoration: none;
+      color: #333;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .pagination a:hover {
+      background-color: #ddd;
+    }
+
+    .pagination .current {
+      font-weight: bold;
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .pagination .disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  </style>
 </head>
 <body>
   <!-- Responsive navbar-->
@@ -31,6 +77,16 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-lg-8">
+
+        <div class="paginator">
+          <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first')) ?>
+            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->last(__('last') . ' >>') ?>
+          </ul>
+        </div>
 
         <?php foreach ($posts as $post): ?>
           <!-- Post content-->
@@ -63,6 +119,16 @@
           </article>
           
         <?php endforeach ?>
+
+        <div class="paginator">
+          <ul class="pagination">
+            <?= $this->Paginator->first('<< ' . __('first')) ?>
+            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->last(__('last') . ' >>') ?>
+          </ul>
+        </div>
 
         <!-- Comments section-->
         <section class="mb-5">

@@ -51,7 +51,11 @@ class AppController extends Controller
         $posts = $this->Posts->find('all', [
             'order' => ['created' => 'DESC'], // Order by the 'created' column in descending order
         ]);
-        
+
+        $this->loadComponent('Paginator');
+
+        $this->set('posts', $this->Paginator->paginate($posts));
+
         $this->set(compact('posts'));
 
         /*
