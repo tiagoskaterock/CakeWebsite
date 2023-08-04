@@ -1,3 +1,6 @@
+<?php use Cake\Routing\Router; ?>
+<?= $this->Flash->render() ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,13 +20,43 @@
         body {
             font-size: 1rem;
         }
+        .message {
+          padding: 16px;
+          border-radius: 4px;
+          margin-bottom: 16px;
+          font-weight: bold;
+          color: #fff;
+        }
+
+        .message.success {
+          background-color: #4caf50;
+        }
+
+        .message.error {
+          background-color: #f44336;
+        }
+
+        .message.warning {
+          background-color: #ff9800;
+        }
+
+        .message.info {
+          background-color: #2196f3;
+        }
     </style>
 
 </head>
 
 <body>
-    <div>
+    <div class="container">
         <h1>Users</h1>
+
+        <a 
+            class="btn"
+            href="<?= Router::url('/users/add') ?>">
+            New User
+        </a>
+
         <table id="myTable">
             <thead>
                 <tr>
@@ -43,15 +76,21 @@
                         <td><?= $user->username ?></td>
 
                         <td>
-                            <button class="btn btn-xs material-symbols-outlined">
-                            visibility
-                            </button>
+                            <a href="#">
+                                <button class="btn btn-xs material-symbols-outlined">
+                                visibility
+                                </button>                                
+                            </a>
                         </td>
 
                         <td>
-                            <button class="btn btn-xs material-symbols-outlined">
-                            edit
-                            </button>
+                            <a 
+                                href="#"
+                                title="Add user">
+                                <button class="btn btn-xs material-symbols-outlined">
+                                edit
+                                </button>                                
+                            </a>
                         </td>
 
                         <td>

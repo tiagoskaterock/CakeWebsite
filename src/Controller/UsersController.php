@@ -3,6 +3,7 @@
 declare(strict_types=1);
 namespace App\Controller;
 use Cake\Error\Debugger;
+use Cake\Routing\Router;
 
 class UsersController extends AppController
 {
@@ -23,19 +24,25 @@ class UsersController extends AppController
         $this->set(compact('usersController'));
     }
 
+
     function add()
     {
-        $usersController = $this->UsersController->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $usersController = $this->UsersController->patchEntity($usersController, $this->request->getData());
-            if ($this->UsersController->save($usersController)) {
-                $this->Flash->success(__('The users controller has been saved.'));
+        $user = $this->Users->newEmptyEntity();
 
+        if ($this->request->is('post')) {
+
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+
+            if($this->Users->save($user)) {
+                $this->Flash->success('User created successfully');
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The users controller could not be saved. Please, try again.'));
+            else{
+                $this->Flash->error('User was not created, there was an error');
+            }
         }
-        $this->set(compact('usersController'));
+
+        $this->set(compact('user'));
     }
 
     
